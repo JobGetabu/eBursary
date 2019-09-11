@@ -9,15 +9,15 @@
             android:icon="@drawable/ic_home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_trending"
+            android:id="@+id/nav_myapplication"
             android:icon="@drawable/ic_description"
             android:title="My Application" />
         <item
-            android:id="@+id/nav_latest"
+            android:id="@+id/nav_bursary"
             android:icon="@drawable/ic_receipt"
             android:title="Bursaries" />
         <item
-            android:id="@+id/nav_highlight"
+            android:id="@+id/nav_applybursary"
             android:icon="@drawable/ic_assignment"
             android:title="Apply Bursary" />
     </group>
@@ -25,7 +25,7 @@
         android:id="@+id/grp_2"
         android:checkableBehavior="none">
         <item
-            android:id="@+id/nav_help"
+            android:id="@+id/nav_signout"
             android:icon="@drawable/ic_exit"
             android:title="Sign out" />
     </group>
