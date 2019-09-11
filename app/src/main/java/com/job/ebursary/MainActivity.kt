@@ -78,11 +78,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_applybursary -> {
-                    Toast.makeText(applicationContext, "${item.title} Selected", Toast.LENGTH_SHORT).show()
+                    startActivity(EnterDataActivity.newIntent(this))
                 }
 
                 R.id.nav_signout -> {
                     Toast.makeText(applicationContext, "${item.title} Selected", Toast.LENGTH_SHORT).show()
+                    startActivity(LoginActivity.newIntent(this))
                 }
             }
 
