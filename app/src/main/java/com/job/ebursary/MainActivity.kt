@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         "Nandi Governor Stephen Sang giving out County bursary",
         "It Is Early Christmas For Students As County Issues BursariesKwale County",
         "Global Hope Foundation Programme gives bursary ",
-        "Embu: County disburses Sh163million bursary\n",
+        "Embu: County disburses Sh163million bursary",
         "Nairobi county executive is yet again on the spot over bursaries"
     )
 
