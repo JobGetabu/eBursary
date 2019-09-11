@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#294DFF</color>
-    <color name="colorPrimaryDark">#294DFF</color>
-    <color name="colorAccent">#294DFF</color>
+    <color name="colorPrimary">#0267B5</color>
+    <color name="colorPrimaryDark">#0267B5</color>
+    <color name="colorAccent">#0267B5</color>
 
     <color name="grey_3">#f7f7f7</color>
     <color name="grey_5">#f2f2f2</color>
@@ -57,5 +57,15 @@
     <color name="white">#FFFFFF</color>
     <color name="light_background">#f2f2f2</color>
     <color name="rvDivider">#CCe0e0e0</color>
+
+    <color name="overlay_dark_10">#1A000000</color>
+    <color name="overlay_dark_20">#33000000</color>
+    <color name="overlay_dark_30">#4D000000</color>
+    <color name="overlay_dark_40">#66000000</color>
+    <color name="overlay_dark_50">#80000000</color>
+    <color name="overlay_dark_60">#99000000</color>
+    <color name="overlay_dark_70">#B3000000</color>
+    <color name="overlay_dark_80">#CC000000</color>
+    <color name="overlay_dark_90">#E6000000</color>
 
 </resources>
