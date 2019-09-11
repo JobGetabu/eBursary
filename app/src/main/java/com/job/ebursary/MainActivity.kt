@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
 
         initToolbar()
         initNavigationMenu()
+
+        loadFragment(HomeFragment())
+
     }
 
     private fun initToolbar() {
@@ -92,7 +95,6 @@ class MainActivity : AppCompatActivity() {
         //drawer_layout.openDrawer(GravityCompat.START)
 
         nav_view.menu.getItem(0).isChecked = true
-
     }
 
 
