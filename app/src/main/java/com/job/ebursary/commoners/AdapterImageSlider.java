@@ -31,7 +31,7 @@ public class AdapterImageSlider extends PagerAdapter {
     }
 
     // constructor
-    private AdapterImageSlider(Activity activity, List<Image> items) {
+    public AdapterImageSlider(Activity activity, List<Image> items) {
         this.act = activity;
         this.items = items;
     }
