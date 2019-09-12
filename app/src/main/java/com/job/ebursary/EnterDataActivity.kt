@@ -46,8 +46,8 @@ class EnterDataActivity : AppCompatActivity() {
         if (item.getItemId() === android.R.id.home) {
             finish()
         } else {
-            Toast.makeText(applicationContext, "Entry added", Toast.LENGTH_SHORT).show()
-            finish()
+            submitInfo()
+
         }
         return super.onOptionsItemSelected(item)
     }
@@ -67,7 +67,7 @@ class EnterDataActivity : AppCompatActivity() {
 
         val dataMap = mapOf<String, Any>()
         dataMap.plus(Pair("name",name))
-        dataMap.plus(Pair("Admission",adminNo))
+        dataMap.plus(Pair("admission",adminNo))
         dataMap.plus(Pair("idnumber",id))
         dataMap.plus(Pair("county",county))
         dataMap.plus(Pair("phone",number))

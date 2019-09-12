@@ -75,4 +75,8 @@
     <color name="blue_400">#42A5F5</color>
     <color name="blue_500">#2196F3</color>
 
+    <color name="light_blue_400">#29B6F6</color>
+    <color name="light_green_300">#AED581</color>
+    <color name="overlay_light_20">#33FFFFFF</color>
+
 </resources>
