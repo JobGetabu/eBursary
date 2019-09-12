@@ -48,6 +48,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColorHint="@color/grey_40">
@@ -64,6 +65,7 @@
                     android:layout_height="@dimen/spacing_middle" />
 
             <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/admin_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/grey_40">
@@ -80,6 +82,7 @@
                 android:layout_height="@dimen/spacing_middle" />
 
             <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idnumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColorHint="@color/grey_40">
@@ -96,6 +99,7 @@
                     android:layout_height="@dimen/spacing_middle" />
 
             <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/county"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/grey_40">
@@ -112,6 +116,7 @@
                 android:layout_height="@dimen/spacing_middle" />
 
             <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/grey_40">
