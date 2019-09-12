@@ -4,10 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.job.ebursary.commoners.Tools
 import com.job.ebursary.fragments.BursaryFragment
 import com.job.ebursary.fragments.HomeFragment
@@ -22,7 +25,17 @@ class MainActivity : AppCompatActivity() {
             Intent(context, MainActivity::class.java)
     }
 
+    private var auth = FirebaseAuth.getInstance()
+    private var firestore = FirebaseFirestore.getInstance()
 
+    override fun onStart() {
+        super.onStart()
+
+        if (auth.currentUser == null) {
+            startActivity(LoginActivity.newIntent(this))
+            finish()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +45,9 @@ class MainActivity : AppCompatActivity() {
         initNavigationMenu()
 
         loadFragment(HomeFragment())
+
+        nav_view.getHeaderView(0).findViewById<TextView>(R.id.email).text = auth.currentUser?.email
+        nav_view.getHeaderView(0).findViewById<TextView>(R.id.name).text = auth.currentUser?.displayName
 
     }
 
@@ -82,7 +98,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_signout -> {
-                    Toast.makeText(applicationContext, "${item.title} Selected", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "${item.title} Signed out", Toast.LENGTH_SHORT).show()
+                    FirebaseAuth.getInstance().signOut()
                     startActivity(LoginActivity.newIntent(this))
                 }
             }
