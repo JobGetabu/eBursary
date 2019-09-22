@@ -156,11 +156,69 @@
                     android:textStyle="bold"
                     android:shadowColor="#FFFFFF"
                     android:textAllCaps="false"
-                    android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"/>
 
 
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_rounded_default"
+                    android:padding="16dp"
+                    android:text="Upload Religious Document"
+                    android:onClick="uploadClick"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"/>
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_rounded_default"
+                    android:padding="16dp"
+                    android:text="Upload Magistrate Document"
+                    android:onClick="uploadClick"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"/>
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_rounded_default"
+                    android:padding="16dp"
+                    android:text="Upload Fee Structure"
+                    android:onClick="uploadClick"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"/>
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_rounded_default"
+                    android:padding="16dp"
+                    android:text="Upload Admission Letter"
+                    android:onClick="uploadClick"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"/>
 
 
         </LinearLayout>

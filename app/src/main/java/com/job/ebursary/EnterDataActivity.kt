@@ -89,12 +89,14 @@ class EnterDataActivity : AppCompatActivity(), PickerInterface {
         progressBar.setTitle("Applying new bursary")
         progressBar.show()
 
-        val dataMap = mapOf<String, Any>()
-        dataMap.plus(Pair("name",name))
-        dataMap.plus(Pair("admission",adminNo))
-        dataMap.plus(Pair("idnumber",id))
-        dataMap.plus(Pair("county",county))
-        dataMap.plus(Pair("phone",number))
+        val dataMap = hashMapOf(
+            "userid" to auth.currentUser!!.uid,
+            "name" to name,
+            "admission" to adminNo,
+            "idnumber" to id,
+            "county" to county,
+            "phone" to number
+        )
 
         firestore.collection("applications")
             .document(auth.currentUser!!.uid).set(dataMap)

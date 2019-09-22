@@ -63,9 +63,10 @@ class RegisterActivity : AppCompatActivity() {
 
                     val user = auth.currentUser
 
-                    val userMap = mapOf<String, Any>()
-                    userMap.plus(Pair("email",email))
-                    userMap.plus(Pair("name",name))
+                    val userMap = hashMapOf(
+                        "email" to email,
+                        "name" to name
+                    )
 
                     val profileUpdates = UserProfileChangeRequest.Builder()
                         .setDisplayName(name)

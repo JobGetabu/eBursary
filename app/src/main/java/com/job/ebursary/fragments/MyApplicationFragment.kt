@@ -9,10 +9,12 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.job.ebursary.R
 import com.job.ebursary.model.ApplicationModel
-import kotlinx.android.synthetic.main.fragment_bursary.*
+import kotlinx.android.synthetic.main.fragment_my_application.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,6 +29,9 @@ private const val ARG_PARAM2 = "param2"
 class MyApplicationFragment : Fragment() {
 
     private lateinit var adapter: FirestoreRecyclerAdapter<ApplicationModel, BursaryViewHolder>
+
+    private var auth = FirebaseAuth.getInstance()
+    private var firestore = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +49,13 @@ class MyApplicationFragment : Fragment() {
 
     private fun setupMyList() {
 
-        val options = FirestoreRecyclerOptions.Builder<ApplicationModel>().build()
+        val query = FirebaseFirestore.getInstance().collection("applications")
+            .whereEqualTo("userid", auth.currentUser!!.uid)
+
+
+        val options = FirestoreRecyclerOptions.Builder<ApplicationModel>()
+            .setQuery(query,ApplicationModel::class.java)
+            .build()
 
         adapter = object : FirestoreRecyclerAdapter<ApplicationModel, BursaryViewHolder>(options) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BursaryViewHolder {
@@ -67,7 +78,7 @@ class MyApplicationFragment : Fragment() {
 
         adapter.startListening()
         adapter.notifyDataSetChanged()
-        recyclerView.adapter = adapter
+        applist.adapter = adapter
 
     }
 
