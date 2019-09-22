@@ -36,7 +36,13 @@ class MyApplicationFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_my_application, container, false)
     }
 
-    private fun SetupMyList() {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        setupMyList()
+    }
+
+    private fun setupMyList() {
 
         val options = FirestoreRecyclerOptions.Builder<ApplicationModel>().build()
 

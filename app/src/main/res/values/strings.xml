@@ -54,4 +54,12 @@ Imara Daima MCA Kennedy Obuya said parents are visiting their offices frequently
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="take_photo">Take a Photo</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="next">Next</string>
+    <string name="retake">Retake</string>
+    <string name="continue_txt">continue</string>
+
+    <string name="default_img_des">default img des</string>
 </resources>

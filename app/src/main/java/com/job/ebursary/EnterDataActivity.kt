@@ -4,16 +4,33 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.job.ebursary.commoners.PickerBottomSheet
+import com.job.ebursary.commoners.PickerInterface
+import com.job.ebursary.commoners.captureFromCameraWithPerm
+import com.job.ebursary.commoners.pickFromGallery
 import kotlinx.android.synthetic.main.activity_data.*
+import timber.log.Timber
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.random.Random
 
 
-class EnterDataActivity : AppCompatActivity() {
+class EnterDataActivity : AppCompatActivity(), PickerInterface {
+
+    private val GALLERY_REQUEST_CODE = 165
+    private val CAMERA_REQUEST_CODE = 116
+
+    private lateinit var pickerInterface: PickerInterface
 
     companion object {
         fun newIntent(context: Context): Intent =
@@ -35,6 +52,7 @@ class EnterDataActivity : AppCompatActivity() {
 
         fullname.editText!!.setText(names)
 
+        pickerInterface = this
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -50,6 +68,12 @@ class EnterDataActivity : AppCompatActivity() {
 
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun uploadClick(v: View){
+        val sheet = PickerBottomSheet(pickerInterface)
+        sheet.show(supportFragmentManager, PickerBottomSheet.TAG)
+
     }
 
     private fun submitInfo(){
@@ -84,4 +108,67 @@ class EnterDataActivity : AppCompatActivity() {
             }
 
     }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            GALLERY_REQUEST_CODE -> {
+                val selectedImage = data!!.data
+                if (selectedImage != null) {
+
+                    //image_got.setImageURI(selectedImage)
+                    toUpload()
+                }
+            }
+            CAMERA_REQUEST_CODE -> {
+
+                toUpload()
+            }
+            else -> {
+                Timber.d("Nothing")
+            }
+        }
+    }
+
+    private fun toUpload(){
+
+        val progressBar = ProgressDialog(this)
+        progressBar.setMessage("Please wait...")
+        progressBar.setTitle("Uploading file")
+        progressBar.show()
+
+        val r = Random(6000)
+
+        Handler().postDelayed({
+            progressBar.dismiss()
+        },r.nextLong())
+    }
+
+    //region TAKE PHOTO LOGIC
+
+    override fun picked(isCamera: Boolean) {
+        if (isCamera) captureFromCameraWithPerm(this, { createImageFile() }, CAMERA_REQUEST_CODE)
+        else pickFromGallery(this, GALLERY_REQUEST_CODE)
+    }
+
+
+    private fun createImageFile(): File? {
+        val mediaStorageDir = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "DropExpress Driver")
+
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                return null
+            }
+        }
+
+        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val image = File(
+            mediaStorageDir.path + File.separator +
+                    "IMG_" + timeStamp + ".jpg"
+        )
+
+        return image
+    }
+
 }

@@ -79,4 +79,9 @@
     <color name="light_green_300">#AED581</color>
     <color name="overlay_light_20">#33FFFFFF</color>
 
+
+    <color name="background">#f5f7fa</color>
+    <color name="textcolor">#4c6086</color>
+    <color name="textdark">#2D2D2D</color>
+
 </resources>
