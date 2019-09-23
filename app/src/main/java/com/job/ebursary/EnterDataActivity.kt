@@ -113,7 +113,7 @@ class EnterDataActivity : AppCompatActivity(), PickerInterface {
         )
 
         firestore.collection("applications")
-            .document(auth.currentUser!!.uid).set(dataMap)
+            .document().set(dataMap)
             .addOnSuccessListener {
                 progressBar.dismiss()
                 finish()
