@@ -125,7 +125,84 @@
                 <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="number"
                         android:hint="Phone *"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bursary Details"
+                    android:textSize="16sp"
+                    />
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/school"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/grey_40">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Institution Name *"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/grey_40">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Physical Address *"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/grey_40">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Date of Birth (dd-mm-yyy) *"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/grey_40">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:hint="Amount you wish to apply *"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -83,6 +83,12 @@ class EnterDataActivity : AppCompatActivity(), PickerInterface {
         val county = county.editText!!.text.toString()
         val number = phone.editText!!.text.toString()
 
+        val school = school.editText!!.text.toString()
+        val address = address.editText!!.text.toString()
+        val dateofbirth = dob.editText!!.text.toString()
+        val amountRequest = amount.editText!!.text.toString()
+
+
 
         val progressBar = ProgressDialog(this)
         progressBar.setMessage("Please wait...")
@@ -95,7 +101,12 @@ class EnterDataActivity : AppCompatActivity(), PickerInterface {
             "admission" to adminNo,
             "idnumber" to id,
             "county" to county,
-            "phone" to number
+            "phone" to number,
+            "school" to school,
+            "address" to address,
+            "dateofbirth" to dateofbirth,
+            "amountrequest" to amountRequest
+
         )
 
         firestore.collection("applications")

@@ -9,12 +9,14 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.job.ebursary.R
 import com.job.ebursary.model.ApplicationModel
 import kotlinx.android.synthetic.main.fragment_my_application.*
+import timber.log.Timber
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -66,12 +68,29 @@ class MyApplicationFragment : Fragment() {
                 return BursaryViewHolder(v)
             }
 
-            override fun onBindViewHolder(p0: BursaryViewHolder, p1: Int, p2: ApplicationModel) {
+            override fun onBindViewHolder(holder : BursaryViewHolder, position: Int, model: ApplicationModel) {
+
 
             }
 
             override fun onError(e: FirebaseFirestoreException) {
                 super.onError(e)
+                // Show a snackbar on errors
+                Snackbar.make(activity!!.findViewById(android.R.id.content),
+                    "Error: check logs for info.", Snackbar.LENGTH_LONG).show()
+
+                Timber.e(e)
+            }
+
+            override fun onDataChanged() {
+                // Show/hide content if the query returns empty.
+                if (itemCount == 0) {
+                    applist.visibility = View.GONE
+                    no_txt.visibility = View.VISIBLE
+                } else {
+                    applist.visibility = View.VISIBLE
+                    no_txt.visibility = View.GONE
+                }
             }
 
         }
