@@ -44,6 +44,7 @@
                     android:orientation="vertical">
 
                 <TextView
+                        android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
@@ -66,6 +67,7 @@
                             android:textColor="@color/grey_40" />
 
                     <TextView
+                            android:id="@+id/admission"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -74,6 +76,15 @@
                             android:textColor="@color/light_blue_400"
                             android:textStyle="bold" />
 
+                    <TextView
+                            android:id="@+id/school"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="   @ school "
+                            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                            android:textColor="@color/grey_40" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -81,6 +92,7 @@
         </LinearLayout>
 
         <TextView
+                android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_large"
@@ -90,6 +102,7 @@
                 android:textColor="@color/grey_60" />
 
         <TextView
+                android:id="@+id/amountrequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_large"
@@ -130,6 +143,7 @@
                     android:orientation="horizontal"/>
 
             <TextView
+                    android:id="@+id/timeago"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end|right"

@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.snackbar.Snackbar
@@ -17,6 +20,8 @@ import com.job.ebursary.R
 import com.job.ebursary.model.ApplicationModel
 import kotlinx.android.synthetic.main.fragment_my_application.*
 import timber.log.Timber
+
+
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -46,13 +51,23 @@ class MyApplicationFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        initRecycler()
         setupMyList()
+    }
+
+    private fun initRecycler() {
+        val layoutManager = LinearLayoutManager(activity)
+        applist.layoutManager = layoutManager
+        applist.setHasFixedSize(true)
+        val itemDecoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
+        applist.addItemDecoration(itemDecoration)
+        applist.itemAnimator = DefaultItemAnimator()
     }
 
     private fun setupMyList() {
 
         val query = FirebaseFirestore.getInstance().collection("applications")
-            .whereEqualTo("userid", auth.currentUser!!.uid)
+            .limit(50)
 
 
         val options = FirestoreRecyclerOptions.Builder<ApplicationModel>()
@@ -70,7 +85,7 @@ class MyApplicationFragment : Fragment() {
 
             override fun onBindViewHolder(holder : BursaryViewHolder, position: Int, model: ApplicationModel) {
 
-
+                holder.init(context, model)
             }
 
             override fun onError(e: FirebaseFirestoreException) {

@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.job.ebursary.commoners.PickerBottomSheet
 import com.job.ebursary.commoners.PickerInterface
@@ -105,7 +106,9 @@ class EnterDataActivity : AppCompatActivity(), PickerInterface {
             "school" to school,
             "address" to address,
             "dateofbirth" to dateofbirth,
-            "amountrequest" to amountRequest
+            "amountrequest" to amountRequest,
+            "time" to FieldValue.serverTimestamp()
+
 
         )
 
