@@ -67,6 +67,7 @@ class MyApplicationFragment : Fragment() {
     private fun setupMyList() {
 
         val query = FirebaseFirestore.getInstance().collection("applications")
+            .whereEqualTo("userid",auth.currentUser!!.uid)
             .limit(50)
 
 
